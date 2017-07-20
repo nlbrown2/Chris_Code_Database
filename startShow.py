@@ -2,10 +2,10 @@ def startShow(showName):
 
     #showName = "Tic_tac_toe"
 
-    from start_hue_show import start_hue_show
-    from start_autonomous_snake import start_autonomous_snake
-    from start_reversi import start_reversi
-    from start_tic_tac_toe import start_tic_tac_toe
+    from lightShows.start_hue_show import start_hue_show
+    from lightShows.start_autonomous_snake import start_autonomous_snake
+    from lightShows.start_reversi import start_reversi
+    from lightShows.start_tic_tac_toe import start_tic_tac_toe
 
     if showName == "Hue Show":
         #def start_hue_show(wait1=0, speed1=1.75, wait2=0, speed2=1.75, wait3=0, speed3=1.75, wait4=0, speed4=1.75)
