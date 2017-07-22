@@ -23,7 +23,7 @@ def start_reversi(train='no', iterations=1000, print_bool_no=1, black_input_no='
         if print_bool_no == 1:
             print('Starting board state: ')
             print(board)
-        winner = play_a_game(board, print_bool_no, black_input_no, white_input_no)
+        winner = play_a_game(board, print_bool_no, black_input_no, white_input_no, display_on_lights_boolean)
         x = input('Press Enter to Exit')
 
     if train == 'yes':
