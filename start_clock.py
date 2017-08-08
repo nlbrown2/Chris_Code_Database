@@ -1,4 +1,4 @@
-def start_clock(orientation, display_on_lights_bool=0, timer_value=1, timer_unit="minutes"):
+def start_clock(orientation, display_on_lights_bool, timer_value, timer_unit):
     from digital_clock_vertical import digital_clock_vertical
     from digital_clock_horizontal import digital_clock_horizontal
     if orientation == 'vertical':

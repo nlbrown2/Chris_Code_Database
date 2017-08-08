@@ -1,4 +1,4 @@
-def start_tic_tac_toe(display_on_lights_boolean=1, summary_print_bool=True, input_number_of_trains=10000, input_number_of_games=1, x_win_weighting=1, o_win_weighting=1):
+def start_tic_tac_toe(display_on_lights_boolean, summary_print_bool, input_number_of_trains, input_number_of_games, x_win_weighting, o_win_weighting):
     import random
     import time
     import itertools
