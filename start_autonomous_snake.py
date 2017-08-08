@@ -1,4 +1,4 @@
-def start_autonomous_snake(sleep_time=0.5, wait_times=[0.05, 0.05, 0.05, 0.05, 0.05, 0.1, 0.15, 0.2, 0.2], number_of_nom_noms=2, number_of_bombs=5, number_of_caffeine_pills=5, level_0_nom_nom=10, level_1_nom_nom=7, level_2_nom_nom=4, display_on_lights_boolean=1):
+def start_autonomous_snake(sleep_time, wait_times, number_of_nom_noms, number_of_bombs, number_of_caffeine_pills, level_0_nom_nom, level_1_nom_nom, level_2_nom_nom, display_on_lights_boolean):
 
     #This program creates a snake that moves around the board searching for nom-noms (represented in text by the number 99) that spawn randomly. When it eats a nom-nom, it gains length
     # and the nom-nom appears somewhere else. If the snake hits a bomb (usually not visible, but can be set to display as 44), it loses length and the bomb appears somewhere else.
@@ -12,7 +12,7 @@ def start_autonomous_snake(sleep_time=0.5, wait_times=[0.05, 0.05, 0.05, 0.05, 0
     import numpy as np
     import os
 
-    if display_on_lights_boolean == 1:
+    if display_on_lights_boolean == True:
         import Adafruit_WS2801
         import Adafruit_GPIO.SPI as SPI
         import RPi.GPIO as GPIO
@@ -33,7 +33,7 @@ def start_autonomous_snake(sleep_time=0.5, wait_times=[0.05, 0.05, 0.05, 0.05, 0
         print(ex)
         print("Error Encountered")
 
-    if display_on_lights_boolean == 1:
+    if display_on_lights_boolean == True:
         nom_nom_color = Adafruit_WS2801.RGB_to_color(0,255,0) #blue
         snake_body_color = Adafruit_WS2801.RGB_to_color(0,0,255) #green
         snake_head_color = Adafruit_WS2801.RGB_to_color(255,0,0) #red
@@ -84,7 +84,7 @@ def start_autonomous_snake(sleep_time=0.5, wait_times=[0.05, 0.05, 0.05, 0.05, 0
         if snake[-1] in caffeine_pills:
             hyper_mode = 1
         if hyper_mode == 1:
-            if display_on_lights_boolean == 1:
+            if display_on_lights_boolean == True:
                 GPIO.output(12,GPIO.HIGH) #comment out whichever one is blue
                 GPIO.output(16, GPIO.HIGH) 
             time_position = time_position + 1
@@ -111,7 +111,7 @@ def start_autonomous_snake(sleep_time=0.5, wait_times=[0.05, 0.05, 0.05, 0.05, 0
         print("\n",grid,"\n")
 
     def display_on_lights():
-        if display_on_lights_boolean == 1:
+        if display_on_lights_boolean == True:
             for i in range(16):
                 for j in range(10):
                     if grid[i][j] == 99:
@@ -324,7 +324,7 @@ def start_autonomous_snake(sleep_time=0.5, wait_times=[0.05, 0.05, 0.05, 0.05, 0
                     nom_noms.append([x,y])
 
         if chosen_move in bombs:
-            if display_on_lights_boolean == 1:
+            if display_on_lights_boolean == True:
                 GPIO.output(12,GPIO.HIGH)
                 GPIO.output(16, GPIO.HIGH) #Comment out whichever one is yellow
             snake.remove(snake[-1])
@@ -348,11 +348,11 @@ def start_autonomous_snake(sleep_time=0.5, wait_times=[0.05, 0.05, 0.05, 0.05, 0
                     caffeine_pills.append([x,y])
 
         print_snake()
-        if display_on_lights_boolean == 1:
+        if display_on_lights_boolean == True:
             display_on_lights()
         time.sleep(rest_time)
 
-        if display_on_lights_boolean == 1:
+        if display_on_lights_boolean == True:
             GPIO.output(12,GPIO.LOW)
             GPIO.output(16, GPIO.LOW)
 

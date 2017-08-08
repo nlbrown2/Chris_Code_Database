@@ -1,4 +1,4 @@
-def start_reversi(train='no', iterations=1000, print_bool_no=1, black_input_no='starter_input', white_input_no='starter_input', print_bool_yes=0, black_input_yes='computer_weight_capture', white_input_yes='computer_random', reset_weight_grid_boolean=0, display_on_lights_boolean=1):
+def start_reversi(train, iterations, print_bool_no, black_input_no, white_input_no, print_bool_yes, black_input_yes, white_input_yes, reset_weight_grid_boolean, display_on_lights_boolean):
     # Program starts here. You can choose between playing a single game, and training the computer against itself over n iterations
 
     import numpy as np
@@ -23,7 +23,7 @@ def start_reversi(train='no', iterations=1000, print_bool_no=1, black_input_no='
         if print_bool_no == 1:
             print('Starting board state: ')
             print(board)
-        winner = play_a_game(board, print_bool_no, black_input_no, white_input_no)
+        winner = play_a_game(board, print_bool_no, black_input_no, white_input_no,display_on_lights_boolean)
         x = input('Press Enter to Exit')
 
     if train == 'yes':
